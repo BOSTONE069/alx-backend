@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-'''
+"""
     Simple pagination.
-'''
+"""
 import csv
 import math
 from typing import List
 
 
 def index_range(page, page_size):
-    '''
+    """
         Returns the range of indexes for a given page.
-    '''
+    """
     start = (page - 1) * page_size
     end = page * page_size
     return start, end
@@ -36,9 +36,9 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        '''
+        """
             Returns a page of data.
-        '''
+        """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         self.dataset()
@@ -51,9 +51,9 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         # sourcery skip: inline-immediately-returned-variable
-        '''
-            Returns info about datset.
-        '''
+        """
+            Returns info about dataset.
+        """
         data = self.get_page(page, page_size)
         dataSet = self.__dataset
         lenSet = len(dataSet) if dataSet else 0
